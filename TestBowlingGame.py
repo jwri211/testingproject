@@ -10,7 +10,7 @@ class TestBowlingGame(unittest.TestCase):
     # tests a gutter game by rolling no pins for all 20 frames.
     def testGutterGame(self):
         for i in range(0, 20):  # could also do: self.rollMany(0,20) i guess.
-            self.game.rolls(0)
+            self.game.rolls.append(0)  # changed from self.game.rolls(0)
         assert self.game.score()==0  # expected score is 0
 
     # tests a game of all ones by rolling 1 each time

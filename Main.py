@@ -1,6 +1,7 @@
 import BowlingGame
 from TestBowlingGame import TestBowlingGame
 
+#create a test object to call and run all tests.
 tester = TestBowlingGame()
 
 def runTests():
@@ -9,8 +10,10 @@ def runTests():
     tester.setUp()
     #apply first test: gutter game, all 0s.
     tester.testGutterGame()
+    print("gutter game passes")
     #apply second test: all ones.
     tester.testAllOnes()
+    print("All ones passes")
     #apply third test: one spare
     tester.testOneSpare()
     #apply fourth test: one strike

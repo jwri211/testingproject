@@ -1,0 +1,35 @@
+Documents the bug fixes done to the source file:
+
+PROBLEM:
+File "C:\Users\johnn\PycharmProjects\testingproject\venv\TestBowlingGame.py", line 13, in testGutterGame
+    self.game.rolls(0)
+TypeError: 'list' object is not callable
+
+SOLUTION:
+Code was trying to apply a score by just calling the list. Changed self.game.rolls(0) to self.game.rolls.append(0)
+this means the loop appends a 0 to the rolls list on each iteration.
+
+
+PROBLEM:
+ File "C:\Users\johnn\PycharmProjects\testingproject\venv\BowlingGame.py", line 20, in score
+    result += self.StrikeScore(rollIndex) #calculate the strike score and add to result.
+AttributeError: 'BowlingGame' object has no attribute 'StrikeScore'
+
+SOLUTION:
+Method was incorrectly named. Corrected a spelling error in the method name to 'strikeScore'
+and changed the method call above to use a lower case first letter.
+
+
+PROBLEM:
+Assertion Error for Test case 1: Assertion falied when game score should be zero.
+
+SOLUTION:
+Refactor the 'score' method. Added missing line to check of score was a strike, and correctly indented following code.
+
+
+PROBLEM:
+File "C:\Users\johnn\PycharmProjects\testingproject\venv\TestBowlingGame.py", line 55, in rollMany
+    self.game.rolls(pins)
+TypeError: 'list' object is not callable
+
+SOLUTION:

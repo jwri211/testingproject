@@ -17,15 +17,16 @@ class BowlingGame:
         for frameIndex in range(10): # Each game contains ten frames, each with 1 or 2 frames.
             if frameIndex in range(10):  #if it is in the first ten frames (trying to calculate strike for last two wont work)
         #  REFACTOR: ADD FOLLOWING LINE: if self.isStrike(rollIndex)
-                result += self.StrikeScore(rollIndex) #calculate the strike score and add to result.
-                rollIndex +=1 # move to next
-            elif self.isSpare(rollIndex): # checks if the frame is a spare - if so, calculates the score accordingly
-                result += self.spareScore(rollIndex)
-                rollIndex +=2
-            else: # cacluclate the games score as normal - i.e 3 + 3 = 6, 1 frame.
-                result += self.frameScore(rollIndex)
+                if self.isStrike(rollIndex):
+                    result += self.strikeScore(rollIndex) #calculate the strike score and add to result.
+                    rollIndex +=1 # move to next
+                elif self.isSpare(rollIndex): # checks if the frame is a spare - if so, calculates the score accordingly
+                    result += self.spareScore(rollIndex)
+                    rollIndex +=2
+                else: # cacluclate the games score as normal - i.e 3 + 3 = 6, 1 frame.
+                    result += self.frameScore(rollIndex)
 
-            rollIndex +=2
+                rollIndex +=2
             return result
 
     # checks for a strike - returns true if the score at this index is 10.
@@ -37,8 +38,8 @@ class BowlingGame:
         return self.rolls[rollIndex]+ self.rolls[rollIndex+1]==10
 
     # Calculates the strike score. Returns ten, Plus the sum of the next two scores
-    # REFACTOR: INCORRECT METHOD NAME: CHANGE TO def strikeScore
-    def stickeScore(self,rollIndex):
+    # REFACTORED: INCORRECT METHOD NAME: CHANGE TO def strikeScore
+    def strikeScore(self,rollIndex):
         # REFACTOR: INCORRECT CALCULATION. SHOULD BE 10 + [i+1] + [i+2] + ([i+1] + [i+2])
         return  10+ self.rolls[rollIndex+1]+ self.rolls[rollIndex+2]
 
