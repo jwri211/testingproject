@@ -8,25 +8,29 @@ def runTests():
     print("Testing...")
     #sets up the bowling game
     tester.setUp()
-    #apply first test: gutter game, all 0s.
+    #Test 1: gutter game, all 0s.
     tester.testGutterGame()
-    print("gutter game passes")
+    print("Gutter game passes")
     tester.resetGame()
-    #apply second test: all ones.
+    #Test 2: all ones.
     tester.testAllOnes()
     print("All ones passes")
     tester.resetGame()
-    #apply third test: one spare
+    #Test 3: one spare
     tester.testOneSpare()
+    print("One spare passes")
     tester.resetGame()
-    #apply fourth test: one strike
+    #Test 4: one strike
     tester.testOneStrike()
+    print("One strike passes")
     tester.resetGame()
-    #apply fith test: perfect score
+    #Test 5: perfect score
     tester.testPerfectGame()
+    print("Perfect game passes")
     tester.resetGame()
-    #apply sixth test: all spares
+    #Test 6: all spares
     tester.testAllSpares()
+    print("All spares passes")
     tester.resetGame()
 
 runTests()
