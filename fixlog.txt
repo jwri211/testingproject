@@ -33,3 +33,12 @@ File "C:\Users\johnn\PycharmProjects\testingproject\venv\TestBowlingGame.py", li
 TypeError: 'list' object is not callable
 
 SOLUTION:
+Code was trying to apply a score by just calling the list. Changed self.game.rolls(pins) to self.game.rolls.append(pins)
+this means the loop appends the pins value to the rolls list on each iteration.
+
+
+PROBLEM:
+Assertion Error for test case 2: Assertion fails on an expected score of 20 when all rolls are ones.
+
+SOLUTION:
+Score method was not calculating correctly. Corrected indentation for the loop. Test 2 passes assertion.

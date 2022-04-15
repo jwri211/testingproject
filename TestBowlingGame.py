@@ -7,6 +7,10 @@ class TestBowlingGame(unittest.TestCase):
     def setUp(self):
         self.game = BowlingGame.BowlingGame()
 
+    #A method to reset the rolls list after each test game
+    def resetGame(self):
+        self.game.rolls = []
+
     # tests a gutter game by rolling no pins for all 20 frames.
     def testGutterGame(self):
         for i in range(0, 20):  # could also do: self.rollMany(0,20) i guess.
@@ -51,6 +55,6 @@ class TestBowlingGame(unittest.TestCase):
     def rollMany(self, pins,rolls):
         for i in range(rolls):
             # REFACTOR - INCORRECT SYNTAX FOR APPLYING SCORE TO ARRAY
-            # CHANGE: -  self.game.rolls[i] = pins
-            self.game.rolls(pins)
+            # CHANGE: -  self.game.rolls(pins) to self.game.rolls.append(pins)
+            self.game.roll(pins)
 
