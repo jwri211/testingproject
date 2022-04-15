@@ -42,3 +42,12 @@ Assertion Error for test case 2: Assertion fails on an expected score of 20 when
 
 SOLUTION:
 Score method was not calculating correctly. Corrected indentation for the loop. Test 2 passes assertion.
+
+PROBLEM:
+File "C:\Users\johnn\PycharmProjects\testingproject\venv\TestBowlingGame.py", line 35, in testOneStrike
+  self.game.rolls(10) # roll first strike -
+TypeError: 'list' object is not callable
+
+SOLUTION:
+Simply changed self.game.rolls(10) (and all following comands) to self.game.roll(10) to call the roll method
+rather than attempt to update the games roll list manually.

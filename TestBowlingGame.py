@@ -24,17 +24,17 @@ class TestBowlingGame(unittest.TestCase):
 
     # tests one spare at the start of the game, followed by 17 gutter balls.
     def testOneSpare(self):
-        self.game.rolls(5)  # knowck down 5
-        self.game.rolls(5)  # knock down remaining 5 (spare - get 1 bonus round)
-        self.game.rolls(3)  # knock down 3 in bonus round
+        self.game.roll(5)  # knock down 5
+        self.game.roll(5)  # knock down remaining 5 (spare - get 1 bonus round)
+        self.game.roll(3)  # knock down 3 in bonus round (double points for score here)
         self.rollMany(0,17)  # Finish the game by rolling gutter balls to ensure score stays 17??
         assert self.game.score()==16  # expected score is 16
 
     # test the score after scoring one strike at the start of the game
     def testOneStrike(self):
-        self.game.rolls(10) # roll first strike -
-        self.game.rolls(4)  # added to bonus score
-        self.game.rolls(3)  # added to bonus score
+        self.game.roll(10) # roll first strike -
+        self.game.roll(4)  # added to bonus score
+        self.game.roll(3)  # added to bonus score
         self.rollMany(0,16) # finish game with another 16 rolls of gutter balls. 16??
         assert self.game.score()==24 # expected score of 24 (10 + 7 + 7)
 
@@ -45,7 +45,7 @@ class TestBowlingGame(unittest.TestCase):
 
     # INCORRECT NAME: REFACTOR TO testAllSpares
     # tests a game where each roll knocks down 5 pins, - 100% spares
-    def testOneSpare(self):
+    def testAllSpares(self):
         self.rollMany(5,21)
         assert self.game.score()==150
 
