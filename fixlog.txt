@@ -50,4 +50,5 @@ TypeError: 'list' object is not callable
 
 SOLUTION:
 Simply changed self.game.rolls(10) (and all following comands) to self.game.roll(10) to call the roll method
-rather than attempt to update the games roll list manually.
+rather than attempt to update the games roll list manually. Made these changes to all other methods that call
+game.rolls(x) where they should call game.roll(x)

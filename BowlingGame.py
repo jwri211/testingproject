@@ -3,7 +3,6 @@ class BowlingGame:
     # when object is initialised, set up an empty array for the score
     def __init__(self):
         self.rolls=[]  # score array, contains the number of pins knocked for each roll
-        # Note that rolls are not frames, and may vary in number from game to game.
 
     # add the number of pins knocked down to the score array
     def roll(self,pins):
@@ -14,9 +13,9 @@ class BowlingGame:
     def score(self):
         result = 0  # variable to hold result
         rollIndex=0 # track which roll
-        for frameIndex in range(10): # Each game contains ten frames, each with 1 or 2 frames.
+        for frameIndex in range(10): # Each game contains ten frames, each with 1 or 2 rolls.
             if frameIndex in range(10):  #if it is in the first ten frames (trying to calculate strike for last two wont work)
-                #REFACTOR: ADD FOLLOWING LINE: if self.isStrike(rollIndex)
+                #REFACTORED: ADD FOLLOWING LINE: if self.isStrike(rollIndex)
                 if self.isStrike(rollIndex):
                     result += self.strikeScore(rollIndex) #calculate the strike score and add to result.
                     rollIndex +=1 # move to next
@@ -39,7 +38,6 @@ class BowlingGame:
     # Calculates the strike score. Returns ten, Plus the sum of the next two scores
     # REFACTORED: INCORRECT METHOD NAME: CHANGE TO def strikeScore
     def strikeScore(self,rollIndex):
-        # REFACTOR: INCORRECT CALCULATION. SHOULD BE 10 + [i+1] + [i+2] + ([i+1] + [i+2])
         return  10+ self.rolls[rollIndex+1]+ self.rolls[rollIndex+2]
 
     # Calculates the score from a spare.
