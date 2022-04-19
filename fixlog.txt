@@ -1,4 +1,7 @@
-Documents the bug fixes done to the source file:
+IT6039 Software Testing and Maintenance - Assignment 3, Testing Project
+John Wright, 20210556
+
+###Documents the bug fixes done to the source files###
 
 PROBLEM:
 File "C:\Users\johnn\PycharmProjects\testingproject\venv\TestBowlingGame.py", line 13, in testGutterGame
@@ -21,7 +24,7 @@ and changed the method call above to use a lower case first letter.
 
 
 PROBLEM:
-Assertion Error for Test case 1: Assertion falied when game score should be zero.
+Assertion Error for Test case 1: Assertion failed when game score should be zero.
 
 SOLUTION:
 Refactor the 'score' method. Added missing line to check of score was a strike, and correctly indented following code.
